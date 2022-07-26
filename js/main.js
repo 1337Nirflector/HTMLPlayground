@@ -252,4 +252,149 @@ function increase() {
 // The model is divided in a tree. Every tree parent (like the html tags from the HTML document) has children.
 // For example: <html> has two children > Head and Body
 
+// find element by id
+document.getElementById("id");
+// find element by class name
+document.getElementsByClassName("class");
+// find element by tag name
+document.getElementsByTagName("tagName");
 
+// In the example below, the getElementById method is used to select the element with id="demo" and change its content.
+var element = document.getElementById("demo");
+element.innerHTML = "Hello World!";
+// The example above assumes that the HTML contains an element with id="demo", for example <div id="demo"></div>.
+
+// Each element in the DOM has a set of properties and methods that provide information about their relationships in the DOM.
+
+// element.childNodes - returns an array of an element's child nodes.
+// [...]
+
+/**
+ * <img id="myimg" src="orange.png" alt="" />
+ * <script>
+ * var el = document.getElementById("myimg");
+ * el.src = "apple.png";
+ * </script>
+ */
+// We can change the href attribute of a link
+/**
+ * <a href="https://www.example.com/">Some link</a>
+ * <script>
+ *   var el = document.getElementsByTagName("a");
+ *   el[0].href = "https://sololearn.com/";
+ * </script>
+ */
+
+// Creating elements
+var node = document.createTextNode("Some new text");
+
+/**
+ * <div id="demo">some content</div>
+ *
+ * <script>
+ *   // creating new paragraph
+ *   var p = document.createElement("p");
+ *   var node = document.createTextNode("Some new text");
+ *   // adding the text to the paragraph
+ *   p.appendChild(node);
+ *
+ *   var div = document.getElementById("demo");
+ *   // adding the paragraph to the div
+ *   div.appendChild(p);
+ * </script>
+ */
+// The same is for replacing and deleting elements
+
+// Creating animations
+/**
+ * // starting positions
+ * var pos = 0;
+ * // box element
+ * var box = document.getElementById("box");
+ *
+ * function move() {
+ *   pos += 1;
+ *   box.style.left = pos + "px"; // px = pixels
+ * }
+ */
+
+// Handling Events
+/**
+ * <button onclick="show()">Click Me</button>
+ * <script>
+ *   function show() {
+ *     alert("Hi there!");
+ *   }
+ * </script>
+ *
+ * var x = document.getElementById("demo");
+ * x.onclick = function() {
+ *   document.body.innerHTML = Date();
+ * }
+ */
+
+// Adding Event Listeners
+/**
+ * element.addEventListener(event, function, useCapture);
+ *
+ * element.addEventListener("click", myFunction);
+ *
+ * function myFunction() {
+ *   alert("Executed.");
+ * }
+ */
+
+// Event Propagation
+// Event Propagation allows for the definition of the element order when an event occurs.
+// If you have a <p> element inside a <div> element, and the user clicks on the <p> element,
+// which element's "click" event should be handled first?
+//
+// In bubbling, the innermost element's event is handled first and then the outer element's event is handled.
+// The <p> element's click event is handled first, followed by the <div> element's click event.
+//
+// In capturing, the outermost element's event is handled first and then the inner.
+// The <div> element's click event is handled first, followed by the <p> element's click event.
+
+/**
+ * elem1.addEventListener("click", myFunction, true) // Capturing propagation
+ *
+ * elem2.addEventListener("click", myFunction, false) // Bubbling propagation
+ */
+
+// Image Slider
+// HTML Code:
+/**
+ * <div>
+ *   <button onclick="prev()"> Prev </button>
+ *   <img id="slider" src="http://www.example.com/uploads/slider/1.jpg"
+ *     width="200px" height="100px"/>
+ *   <button onclick="next()"> Next </button>
+ * </div>
+ */
+// JS Code:
+/**
+ * var images = [
+ * "http://www.example.com/uploads/slider/1.jpg",
+ * "http://www.example.com/uploads/slider/2.jpg",
+ * "http://www.example.com/uploads/slider/3.jpg"
+ * ];
+ * var num = 0;
+ *
+ * function next() {
+ *   var slider = document.getElementById("slider");
+ *   num++;
+ *   if (num >= images.length) {
+ *   num = 0;
+ *   }
+ *   slider.src = images[num];
+ * }
+ *
+ * function prev() {
+ *   var slider = document.getElementById("slider");
+ *   num--;
+ *   if (num < 0 ) {
+ *   num = images.length - 1;
+ * }
+ * slider.src = images[num];
+ * }
+ */
