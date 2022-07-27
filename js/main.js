@@ -398,3 +398,158 @@ var node = document.createTextNode("Some new text");
  * slider.src = images[num];
  * }
  */
+
+//--------------------------------------------------------------------------------------------------------------------//
+// Section 7: ECMAScript6
+//--------------------------------------------------------------------------------------------------------------------//
+
+// Three different types for declaring variables
+var A = 10; // variable with global visibility
+const B = "hello"; // immutable variables - once they are declared, its value cannot be changed later
+let C = true; // variable, that is visible only in the block, statement or expression in which they are used
+
+// Template Literals
+// Template Literals are a way to output variables in the string.
+let name = 'David';
+let msg = 'Welcome ' + name + '!';
+console.log(msg);
+// This can be rewritten as:
+/**
+ * let name = 'David';
+ * let msg = `Welcome ${name}!`;
+ * console.log(msg);
+ */
+
+let arr = [1, 2, 3];
+for (let k; k < arr.length; k++) {
+  console.log(arr[k]);
+}
+// This can be rewritten as:
+/**
+ * let arr = [1, 2, 3];
+ * for (let k in arr) {
+ *   console.log(k);
+ * }
+ */
+
+function add(x, y) {
+  var sum = x+y;
+  console.log(sum);
+}
+// This can be rewritten as:
+/**
+ * const add = (x, y) => {
+ *   let sum = x + y;
+ *   console.log(sum);
+ * }
+ */
+// Empty Functions as:
+/**
+ * const greet = x => "Welcome " + x;
+ *
+ * const x = () => alert("Hi");
+ */
+
+// Default Values for functions
+function testing(a, b = 32, c = 42) {
+  return a + b + c;
+}
+
+// Example of an arrow function with default parameters
+const testing2 = (a, b = 32, c = 42) => {
+  return a + b + c;
+}
+
+// ECMAScript6 introduces shorthand notations and computed property names that make declaring and using objects easier
+// to understand.
+
+let tree = {
+  height: 10,
+  color: 'green',
+  grow() {
+    this.height += 2;
+  }
+};
+tree.grow();
+
+// Other shorthand:
+let height = 5;
+let health = 100;
+
+let athlete = {
+  height,
+  health
+};
+
+// Computed property
+let prop = 'name';
+let id = '1234';
+let mobile  = '08923';
+
+let user = {
+  [prop]: 'Jack',
+  [`user_${id}`]: `${mobile}`
+};
+
+// Object.asign() in ECMAScript6
+let person = {
+  name: 'Jack',
+  age: 26,
+  sex: 'male'
+};
+let student = {
+  name: 'Bob',
+  age: 20,
+  xp: '2'
+};
+let newStudent = Object.asign({}, person, student);
+
+// Object Destructuring
+let obj = {h: 100, s: true};
+let {h, s} = obj;
+console.log(h); // Outputs 100
+console.log(s); // Outputs true
+
+// Classes
+/**
+ * class Rectangle {
+ *   constructor(height, width) {
+ *     this.height = height;
+ *     this.width = width;
+ *   }
+ * }
+ *
+ * const square = new Rectangle(5, 5)
+ */
+
+// CHALLENGE 7
+// You are making a text encryptor. It should take multiple words and output a combined version,
+// where each word is separated by a dollar sign $.
+// For example, for the words "hello", "how", "are", "you", the output should be "$hello$how$are$you$".
+// The given code declares a class named Add, with a constructor that takes one rest parameter.
+// Complete the code by adding a print() method to the class, which should generate the requested output.
+/**
+ * class Code{
+ *   constructor(...words) {
+ *       this.words = words;
+ *   }printDeCode(){
+ *   var x=0;
+ *   function rest(){
+ *       x=Math.floor(Math.random()*dec.length)
+ *   }
+ *   let y="";
+ *       for(let x in this.words){
+ *         y=y+"$"+this.words[x];
+ *
+ *       }
+ *       console.log(y+"$");
+ *   }
+ * }
+ *
+ * var x = new Code("hehe", "hoho", "haha", "hihi", "huhu");
+ * var y = new Code("this", "is", "awesome");
+ * var z = new Code("lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipiscing", "elit");
+ * x.printDeCode();
+ * y.printDeCode();
+ * z.printDeCode();
+ */
